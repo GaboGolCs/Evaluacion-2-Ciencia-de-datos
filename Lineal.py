@@ -68,4 +68,5 @@ plt.title("Regresión Lineal — Predicción de número de casos diarios por suc
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-#plt.show()
+plt.show()
+
