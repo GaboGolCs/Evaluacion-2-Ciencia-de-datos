@@ -109,5 +109,6 @@ def funcion_ejecutor():
     df = validar_fecha(df)
     df = eliminar_nulos(df)
     df.to_csv("nuevoCSV.csv", sep=";", index=False)
+    print("Limpieza completada y archivo guardado como 'nuevoCSV.csv'")
 
 funcion_ejecutor()
