@@ -65,8 +65,8 @@ accuracy = accuracy_score(Y_testeo, y_pred)
 print(f"\nExactitud del modelo: {accuracy:.4f} ({accuracy*100:.2f}%)")
 
 # --- resultados de instituciones analizadas ---
-print(f"\nInstituciones únicas a predecir: {len(class_names)}")
-print(f"\nTop 5 Instituciones más frecuentes:")
+print(f"\nInstituciones unicas a predecir: {len(class_names)}")
+print(f"\nTop 5 Instituciones mas frecuentes:")
 instituciones_test = pd.Series(y).value_counts().head(5)
 for inst, count in instituciones_test.items():
-    print(f"  - {inst}: {count} trámites")
+    print(f"  - {inst}: {count} tramites")
