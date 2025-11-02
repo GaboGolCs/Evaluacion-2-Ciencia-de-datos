@@ -16,10 +16,14 @@ sucursales_codificadas = pd.get_dummies(casos_por_dia["SUCURSAL"], prefix="SUCUR
 # Unir las columnas
 dataset_final = pd.concat([casos_por_dia, sucursales_codificadas], axis=1)
 
+
+#solo usamos las columnas binarias para predecir
 X = dataset_final.drop(columns=["FECHA_INGRESO", "SUCURSAL", "NUM_CASOS_DIA"])
+# variable objetivo numero de casos por dia
 y = dataset_final["NUM_CASOS_DIA"]
 
-X_entrenamiento, X_prueba, y_entrenamiento, y_prueba = train_test_split(X, y, test_size=0.2, random_state=42)
+
+X_entrenamiento, X_prueba, y_entrenamiento, y_prueba = train_test_split(X, y, test_size=0.3, random_state=42)
 
 modelo_regresion = LinearRegression()
 modelo_regresion.fit(X_entrenamiento, y_entrenamiento)
@@ -30,9 +34,11 @@ error_medio_cuadratico = mean_squared_error(y_prueba, predicciones)
 raiz_error_medio = np.sqrt(error_medio_cuadratico)
 r2 = r2_score(y_prueba, predicciones)
 
-print("Evaluación del modelo de Regresión Lineal:")
-print(f"RMSE: {raiz_error_medio:.2f} → En promedio, las predicciones se desvían en {raiz_error_medio:.2f} casos.")
-print(f"R²: {r2:.2%} → El modelo explica el {r2:.2%} de la variación total en los casos diarios.\n")
+print("Evaluacion del modelo de Regresion Lineal:")
+print(f"RMSE: {raiz_error_medio:.2f} -> En promedio, las predicciones se desvian en {raiz_error_medio:.2f} casos.")
+print(f"R2: {r2:.2%} -> El modelo explica el {r2:.2%} de la variacion total en los casos diarios.\n")
+# ... y el título del gráfico
+plt.title("Regresion Lineal - Prediccion de numero de casos diarios por sucursal")
 
 
 # coeficientes del modelo
@@ -62,4 +68,4 @@ plt.title("Regresión Lineal — Predicción de número de casos diarios por suc
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-plt.show()
+#plt.show()
