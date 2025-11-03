@@ -2,7 +2,7 @@ import pandas as pd
 import unicodedata
 
 
-# ===  Eliminar columnas vacías ===  BUSCAR COMO FUNCIONA
+# ===  Eliminar columnas vacías ===
 def elimina_col_vacias(df):
     df = df.loc[:, ~df.columns.str.contains("^Unnamed")]
     return df
@@ -112,3 +112,4 @@ def funcion_ejecutor():
     print("Limpieza completada y archivo guardado como 'nuevoCSV.csv'")
 
 funcion_ejecutor()
+
