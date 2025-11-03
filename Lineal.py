@@ -37,9 +37,6 @@ r2 = r2_score(y_prueba, predicciones)
 print("Evaluacion del modelo de Regresion Lineal:")
 print(f"RMSE: {raiz_error_medio:.2f} -> En promedio, las predicciones se desvian en {raiz_error_medio:.2f} casos.")
 print(f"R2: {r2:.2%} -> El modelo explica el {r2:.2%} de la variacion total en los casos diarios.\n")
-# ... y el título del gráfico
-plt.title("Regresion Lineal - Prediccion de numero de casos diarios por sucursal")
-
 
 # coeficientes del modelo
 importancia_sucursales = pd.DataFrame({
@@ -69,4 +66,5 @@ plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+
 
